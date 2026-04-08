@@ -29,8 +29,5 @@ phases:
 artifacts:
   files:
     - imageDetail.json
-    - imagedefinitions.json
     - taskdef-employee.json
     - appspec-employee.yaml
-  # Nếu các file taskdef/appspec nằm trong thư mục gốc của Repo, viết như trên.
-  # Nếu nằm trong thư mục employee/, hãy viết: employee/taskdef-employee.json
