@@ -12,8 +12,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      # Đứng từ ngoài gốc, chỉ thẳng vào thư mục employee (không dùng cd nữa)
-      - docker build -t $REPOSITORY_URI:latest ./customer
+      - docker build --platform linux/amd64 -t $REPOSITORY_URI:latest ./customer
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
@@ -21,12 +20,15 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - echo Writing image definitions file...
+      - echo Writing deployment files...
+      # Tạo file imageDetail.json (Dùng cho Blue/Green Deployment)
+      - printf '{"ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
+      # (Tùy chọn) Vẫn tạo imagedefinitions.json nếu bạn muốn dự phòng
       - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files:
     - imageDetail.json
-    - deployment/taskdef-customer.json  
-    - deployment/appspec-customer.yaml
+    - deployment/taskdef-customer.json  # Chỉ đúng đường dẫn vào thư mục deployment
+    - deployment/appspec-customer.yaml # Chỉ đúng đường dẫn vào thư mục deployment
   discard-paths: yes
