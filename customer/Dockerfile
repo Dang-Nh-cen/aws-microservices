@@ -1,5 +1,5 @@
 # Sử dụng Node.js phiên bản 11 rút gọn (alpine) làm nền
-FROM node:16-alpine
+AmazonEC2ContainerRegistryPowerUser
 
 # Tạo thư mục chứa code trong container
 RUN mkdir -p /usr/src/app
