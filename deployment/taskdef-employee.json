@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "employee",
-            "image": "IMAGE",
+            "image": "<IMAGE>",
             "environment": [
                 {
                     "name": "APP_DB_HOST",
