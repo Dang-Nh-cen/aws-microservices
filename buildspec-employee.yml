@@ -29,5 +29,6 @@ phases:
 artifacts:
   files:
     - imageDetail.json
-    - taskdef-employee.json
-    - appspec-employee.yaml
+    - deployment/taskdef-employee.json  # Chỉ đúng đường dẫn vào thư mục deployment
+    - deployment/appspec-employee.yaml # Chỉ đúng đường dẫn vào thư mục deployment
+  discard-paths: yes
