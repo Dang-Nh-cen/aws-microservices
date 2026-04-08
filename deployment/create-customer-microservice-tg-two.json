@@ -1,0 +1,29 @@
+{
+    "serviceName": "customer-service",
+    "taskDefinition": "customer-microservice:30",
+    "cluster": "microservices-serverlesscluster",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-2:650555452655:targetgroup/customer-tg-two/081b8a267b62f338",
+            "containerName": "customer",
+            "containerPort": 8080
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "deploymentController": {
+        "type": "CODE_DEPLOY"
+    },
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-06a86a9dcda21fdd8",
+                "subnet-03e9f816255af4f7e"
+            ],
+            "securityGroups": [
+                "sg-00a10cfe6cb455528"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}

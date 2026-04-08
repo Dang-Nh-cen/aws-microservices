@@ -1,0 +1,43 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "employee",
+            "image": "<IMAGE1_NAME>",
+            "environment": [
+                {
+                    "name": "APP_DB_HOST",
+                    "value": "coffee-db.c3aeqo4k8fei.ap-southeast-2.rds.amazonaws.com"
+                }
+            ],
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 8081,
+                    "protocol": "tcp",
+                    "containerPort": 8081
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "awslogs-capstone",
+                    "awslogs-region": "ap-southeast-2",
+                    "awslogs-stream-prefix": "awslogs-capstone"
+                }
+            }
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "512",
+    "memory": "1024",
+    "executionRoleArn": "arn:aws:iam::650555452655:role/ECR-Role",
+    "family": "employee-microservice",
+    "runtimePlatform": {
+    "cpuArchitecture": "ARM64",
+    "operatingSystemFamily": "LINUX"
+  }
+}
