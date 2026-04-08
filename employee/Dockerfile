@@ -1,5 +1,5 @@
 # Dùng Node 16 cho ổn định
-FROM node:16-alpine
+FROM public.ecr.aws/docker/library/node:16-alpine
 
 # Tạo thư mục app
 RUN mkdir -p /usr/src/app
