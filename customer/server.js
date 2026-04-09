@@ -37,8 +37,8 @@ function renderPage(title, content) {
             @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
             body { 
                 font-family: 'Inter', sans-serif; 
-                background-color: #e8f5e9; /* Màu xanh lá nhạt (Light Green) */
-                color: #2e7d32;            /* Đổi màu chữ sang xanh đậm cho đồng bộ */
+                background-color: #fdfaf7; 
+                color: #4a3728; 
                 margin: 0; 
                 display: flex; justify-content: center; align-items: center; min-height: 100vh; 
             }
@@ -53,7 +53,7 @@ function renderPage(title, content) {
             td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
             tr:nth-child(even) { background-color: #fafafa; }
             .btn-main { 
-                display: inline-flex; align-items: center; background-color: #634832; 
+                h1 { font-family: 'Playfair Display', serif; color: #5d4037; 
                 color: white; padding: 12px 25px; border-radius: 50px; 
                 text-decoration: none; font-weight: 600; transition: 0.3s; gap: 10px;
             }
